@@ -1,7 +1,7 @@
 # ColorMod
 Code from ColorMod: Recoloring 3D Printed Objects using Photochromic Inks (ACM CHI2018)
 
-Please refer to **our project [website]**(http://hcie.csail.mit.edu/research/colormod/colormod.html) for more details. 
+Please refer to our project [website](http://hcie.csail.mit.edu/research/colormod/colormod.html) for more details. 
 
 ### Overview
 This code has TWO seperate parts, **printing** and **painting** (included controller for rotating platform). 
