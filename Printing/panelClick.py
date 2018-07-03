@@ -1,0 +1,3 @@
+printing = True
+
+painting = False

@@ -1,0 +1,8 @@
+octopus dimension: 8ish x 8ish x 6cm 
+
+octree depth = 7 
+
+color voxel: 3x3x1 
+
+cube used: 8 cubes (7 1x9x6, 1 1.5x9x6)
+first at 5mmx-4.5cmx3cm 

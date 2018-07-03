@@ -1,0 +1,15 @@
+Arduino: 
+1. Configure pin based on circuit set up and configure serial communication 
+2. In the main loop, toggle pin status after each serial message 
+2. Upload code (SerialController.ino) to Arduino board 
+
+Visual Studio C++: 
+// Original code from 
+// - https://playground.arduino.cc/Interfacing/CPPWindows#VisualStudio2008 
+1. Create a Windows Form Application 
+2. Drag "SerialPort" from toolbox onto your form
+3. Drag "button" from toolbox onto your form and add the code for the button in MyForm.h
+    this->serialPort1->PortName = "COM3";  // Replace with your COM port!
+		this->serialPort1->Open();
+		this->serialPort1->Write("7"); // Can be changed based on Arduino code 
+		this->serialPort1->Close();

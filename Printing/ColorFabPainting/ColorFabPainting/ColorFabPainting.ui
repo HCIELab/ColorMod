@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ColorFabPaintingClass</class>
+ <widget class="QMainWindow" name="ColorFabPaintingClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>660</width>
+    <height>505</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ColorFabPainting</string>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionPreviousView"/>
+   <addaction name="actionNextView"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>660</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>Image Processing</string>
+    </property>
+    <addaction name="actionExtractColorVoxels"/>
+    <addaction name="actionCreateImg4Projection"/>
+   </widget>
+   <addaction name="menuAbout"/>
+  </widget>
+  <action name="actionmm">
+   <property name="text">
+    <string>mm</string>
+   </property>
+  </action>
+  <action name="actionmj">
+   <property name="text">
+    <string>mj</string>
+   </property>
+  </action>
+  <action name="actionNextView">
+   <property name="text">
+    <string>Next View</string>
+   </property>
+  </action>
+  <action name="actionprevious">
+   <property name="text">
+    <string>previous</string>
+   </property>
+  </action>
+  <action name="actionPreviousView">
+   <property name="text">
+    <string>Previous View</string>
+   </property>
+  </action>
+  <action name="actionExtractColorVoxels">
+   <property name="text">
+    <string>Extract Color Voxels</string>
+   </property>
+  </action>
+  <action name="actionCreateImage4Projection">
+   <property name="text">
+    <string>Create Image for Projection</string>
+   </property>
+  </action>
+  <action name="actionCreateImg4Projection">
+   <property name="text">
+    <string>Create Image for Projection</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="ColorFabPainting.qrc"/>
+ </resources>
+ <connections/>
+</ui>

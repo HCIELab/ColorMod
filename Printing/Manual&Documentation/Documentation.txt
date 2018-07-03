@@ -1,0 +1,52 @@
+Overall Workflow:
+1. Pass in the file path of an obj file to load_obj to create a VoxelModel object
+2. Pass in the VoxelModel object and number of colors to export_obj to generate an obj file for each of the colors
+
+Functions:
+load_obj(objfile)
+    read through the input obj file and extract info on
+    vertices: v x z y
+    faces: f v1/vt/vn v2/vt/vn v3/vt/vn v4/vt/vn where vn is the normal vector to the face and v1-v4 are the four corners;
+           vt is the vertex texture indice but it is usually empty
+    For reference on spec of obj file, refer to: https://en.wikipedia.org/wiki/Wavefront_.obj_file
+
+    return a VoxelModel object with attributes parsed from the input obj file
+
+export_obj(voxelModel, int)
+    takes a voxelModel object and an integer n (number of colors)
+
+    generates n+1 object files where files 1-n are the shell of the original model divided into n models
+    and file n+1 is the inside of the original model; when these n+1 models are combined, one gets the original model
+
+Classes:
+VoxelModel
+    Methods:
+    organize_vertices_by_z():
+    returns a dictionary that stores coordinates of vertices of the model;
+    whose keys are z coordinate and values are a set of (x,y) that lie on the corresponding z level
+
+    vertices_per_layer(float zi, set verticesOnLayeri, float zj, set veticesOnLayerj):
+    returns
+    validCoord: a set of coordinates (x,y) such that (x,y,zi) and (x,y,zj) are connected by an edge of a face perpendicular to and between zi and zj planes,
+    validEdges: a list storing these edges,
+    validFaces: a set of vertex indices (v1, v2, v3, v4) (v1-v4 are sorted and they are original indices from the input obj file)
+    that records faces perpendicular to and between zi and zj planes
+
+    grid_per_layer(set validCoord, set validFaces, float zi, float zj, list validEdges):
+    returns blockContents: a list of list such that blockContents[j][i] stores the content of the block at column i row j
+    if blockContents[j][i] is 1, it means there is a block at this position, empty otherwise
+
+    determine_color_per_layer(list blockContents, int numColor, float layerZ):
+    returns blockColors: a list of list such that blockColors[j][i] stores the color index of the block at column i row j
+    0 means the block does not exist, 1-numColor if the block is on the surface of the model, or numColor+1 if the block is in the inside of the model
+
+VoxelLayer
+    Methods:
+    update_vertices_and_faces(int i, int j, int numExistingVertices):
+    this method calculates coordinates of the eight vertices of the block i,j, and the four vertex indiies of the six faces of the block;
+    it then updates the class attributes that store the vertex coordinates and face vertex indicies of each material for this layer
+
+VoxelObj
+    Methods:
+    update(set faces, list vertices):
+    updates the class attributes that store the vertex coordinates and face vertex indicies of each material for the model
